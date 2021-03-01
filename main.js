@@ -4,6 +4,12 @@
 // board ([[0, 0, 0], [0, 0, 0], [0, 1, -1]]) - array of arrays, multi-dimensional
 // ************************************************
 /*----- constants -----*/
+// From render() below, constant
+const xAnd0Lookup = {
+  0: "",
+  1: "X",
+  "-1": "O",
+};
 
 /*----- app's state (variables) -----*/
 let board, turn, winner;
@@ -24,16 +30,16 @@ init();
 // event handler function below:
 // e = event object
 function handleBox(e) {
-  // event object
+  // event object (box clicks)
   console.log(e.target);
 }
 
 function init() {
   //  Initialize all state
   board = [
+    [1, 0, 0],
     [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
+    [0, 0, -1],
   ];
   turn = 1;
   winner = null;
@@ -41,8 +47,15 @@ function init() {
 }
 
 function render() {
-  board.forEach(function (mark, index) {
-    console.log(mark, index);
+  // Render function for message and board state
+  board.forEach(function (colMark, colIndex) {
+    // Iterate over column array to access box values
+    colMark.forEach(function (boxValue, rowIndex) {
+      // Select correct div for boxValue (DOM element)
+      const boxDiv = document.getElementById(`c${colIndex}r${rowIndex}`);
+      boxDiv.textContent = xAnd0Lookup[boxValue];
+      // We want to use a data lookup structure as constant, in constant area above to change box to x or o.
+    });
   });
 }
 
