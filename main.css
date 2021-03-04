@@ -1,6 +1,7 @@
 /* Default is content box, so use border box */
 * {
   box-sizing: border-box;
+  font-family: "Stick", sans-serif;
 }
 
 body {
@@ -10,14 +11,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Stick", sans-serif;
   text-align: center;
   font-size: 5vmin;
+  /* background-image: url(); */
 }
 
 header {
   font-size: 10vmin;
   letter-spacing: 2vmin;
+}
+
+h1 {
+  margin-top: 0;
 }
 
 #board {
@@ -34,11 +39,17 @@ header {
 #board > div:hover {
 }
 
+#board > div > #c0r0 {
+  border-left: none;
+}
+
 div {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 15vmin;
+  /* background-position: center;  */ /*center img and keep inside div
+  /* background-size: cover; */
 }
 
 button {
